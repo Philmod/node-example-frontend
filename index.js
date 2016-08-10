@@ -2,7 +2,7 @@ var app = require('express')();
 var morgan = require('morgan');
 var serverStatus = require('express-server-status');
 
-app.use(morgan(config.logger));
+app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
