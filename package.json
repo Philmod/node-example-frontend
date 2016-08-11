@@ -4,7 +4,7 @@
   "description": "web frontend",
   "dependencies": {
     "express": "^4.14.0",
-    "express-server-status": "^1.0.3",
+    "express-server-status": "https://git@github.com/Philmod/express-server-status.git#fix-git",
     "morgan": "^1.7.0"
   },
   "scripts": {
