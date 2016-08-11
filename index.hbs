@@ -38,7 +38,6 @@
         return false;
       });
       socket.on('hostname', function(hostname){
-        console.log('websocket server: ', hostname);
         $('#websocketserver').html(hostname);
       });
       socket.on('chat message', function(msg){
