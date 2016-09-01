@@ -45,11 +45,9 @@
         $('#messages').append($('<li>').text(msg));
       });
       socket.on('connect', function() {
-        console.log('connect')
         $('#messages').append($('<li style="background:green;">').text('connected'));
       });
       socket.on('connect_error', function() {
-        console.log('connect_error')
         $('#messages').append($('<li style="background:red;">').text('disconnected'));
       });
     </script>

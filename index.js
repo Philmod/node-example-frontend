@@ -4,6 +4,10 @@ var morgan = require('morgan');
 var exphbs = require('express-handlebars');
 var serverStatus = require('express-server-status');
 
+// temp //
+console.log('Env varibles: ', process.env);
+//////////
+
 app.use(morgan('dev'));
 app.engine('hbs', exphbs());
 app.set('view engine', 'hbs');
