@@ -15,6 +15,7 @@ app.set('view engine', 'hbs');
 app.get('/', function(req, res) {
   res.render(__dirname + '/index.hbs', {
     websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3002',
+    websocketPath: process.env.WEBSOCKET_PATH || 'ws://localhost:3002',
     htmlserver: os.hostname()
   });
 });
