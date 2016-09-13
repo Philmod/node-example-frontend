@@ -4,10 +4,6 @@ var morgan = require('morgan');
 var exphbs = require('express-handlebars');
 var serverStatus = require('express-server-status');
 
-// temp //
-console.log('Env varibles: ', process.env);
-//////////
-
 app.use(morgan('dev'));
 app.engine('hbs', exphbs());
 app.set('view engine', 'hbs');
@@ -15,7 +11,7 @@ app.set('view engine', 'hbs');
 app.get('/', function(req, res) {
   res.render(__dirname + '/index.hbs', {
     websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3002',
-    websocketPath: process.env.WEBSOCKET_PATH || 'ws://localhost:3002',
+    websocketPath: process.env.WEBSOCKET_PATH || 'socket.io',
     htmlserver: os.hostname()
   });
 });
@@ -33,6 +29,13 @@ app.get('/slow', function(req, res) {
   }, delay);
 });
 
-app.listen(3001, function() {
-  console.log('listening on *:3001');
-});
+/**
+ * Start server if not test environment.
+ */
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(3001, function() {
+    console.log('listening on *:3001');
+  });
+}
+
+module.exports = app;

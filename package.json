@@ -8,7 +8,13 @@
     "express-server-status": "https://git@github.com/Philmod/express-server-status.git#fix-git",
     "morgan": "^1.7.0"
   },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "^2.4.5",
+    "supertest": ""
+  },
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "test": "NODE_ENV=test mocha test"
   }
 }
