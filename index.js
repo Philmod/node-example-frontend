@@ -1,4 +1,6 @@
-var app = require('express')();
+var path = require('path');
+var express = require('express');
+var app = express();
 var os = require('os');
 var morgan = require('morgan');
 var exphbs = require('express-handlebars');
@@ -7,11 +9,13 @@ var serverStatus = require('express-server-status');
 app.use(morgan('dev'));
 app.engine('hbs', exphbs());
 app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, '/public'));
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render(__dirname + '/index.hbs', {
+  res.render('index.hbs', {
     websocketHost: process.env.WEBSOCKET_HOST || 'ws://localhost:3002',
-    websocketPath: process.env.WEBSOCKET_PATH || 'socket.io',
+    websocketPath: process.env.WEBSOCKET_PATH || '/socket.io',
     htmlserver: os.hostname()
   });
 });
