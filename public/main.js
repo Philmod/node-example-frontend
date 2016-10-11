@@ -177,7 +177,7 @@ $(function() {
 
   socket.on('hostname', function(hostname) {
     $('#websocketserver').html(hostname);
-    var message = 'Websocket connected to ' + hostname;
+    var message = 'WebSocket connected to ' + hostname;
     log(message);
   });
 
