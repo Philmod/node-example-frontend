@@ -161,6 +161,9 @@ $(function() {
    * Socket events.
    */
   socket.on('new_message', function(data) {
+    if (!data.username) {
+      console.error('Message without username: ', data);
+    }
     addChatMessage(data);
   });
 
