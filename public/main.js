@@ -56,7 +56,7 @@ $(function() {
   }
 
   // Log a message
-  function log (message, options) {
+  function log(message, options) {
     // $('#messages').append($('<li style="background:red;">').text('disconnected'));
     var $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);
@@ -186,6 +186,13 @@ $(function() {
 
   socket.on('connect', function() {
     connected = true;
+    if (firstConnect) {
+      // So the server knows it has to send the list of old messages.
+      socket.emit('login');
+    } else {
+      // The (new) server has to know the username.
+      socket.emit('add_user', username);
+    }
     var message = 'Welcome' + (!firstConnect ? ' back' : '') + ' to Caramail';
     log(message, {
       prepend: firstConnect
