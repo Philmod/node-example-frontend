@@ -35,7 +35,8 @@ $(function() {
       $loginPage.fadeOut();
       $chatPage.show();
       $loginPage.off('click');
-      $currentInput = $inputMessage.focus();
+      $currentInput.blur();
+      // $currentInput = $inputMessage.focus();
 
       // Tell the server your username
       socket.emit('add_user', username);
@@ -50,6 +51,7 @@ $(function() {
     // if there is a non-empty message and a socket connection
     if (message && connected) {
       $inputMessage.val('');
+      $inputMessage.blur();
       // tell server to execute 'new_message' and send along one parameter
       socket.emit('new_message', message);
     }
@@ -139,6 +141,7 @@ $(function() {
         socket.emit('stop typing');
         typing = false;
       } else {
+        event.preventDefault();
         setUsername();
       }
     }
