@@ -113,6 +113,15 @@ ul {
   font-weight: 100;
 }
 
+.login.page .footer {
+  color: #fff;
+  font-size: 1em;
+  position: absolute;
+  text-align: center;
+  bottom: 2%;
+  width: 100%;
+}
+
 /* Chat page */
 
 .chat.page {
