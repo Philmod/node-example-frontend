@@ -1,0 +1,23 @@
+redis:
+  image: redis
+  restart: always
+  ports:
+    - "6379"
+
+frontend:
+  image: gcr.io/node-example-gke/frontend:latest
+  ports:
+    - "3001:3001"
+  links:
+    - websocket
+  volumes:
+   - ~/dev/node-example/node-example-frontend:/usr/src/app
+
+websocket:
+  image: gcr.io/node-example-gke/websocket:latest
+  ports:
+    - "3002:3002"
+  links:
+    - redis
+  volumes:
+   - ~/dev/node-example/node-example-websocket:/usr/src/app
