@@ -12,6 +12,7 @@ frontend:
     - websocket
   volumes:
    - ~/dev/node-example/node-example-frontend:/usr/src/app
+  command: sh -c 'npm install; npm install -g nodemon ; nodemon index.js'
 
 websocket:
   image: gcr.io/node-example-gke/websocket:latest
@@ -21,3 +22,4 @@ websocket:
     - redis
   volumes:
    - ~/dev/node-example/node-example-websocket:/usr/src/app
+  command: sh -c 'npm install; npm install -g nodemon ; nodemon index.js'
