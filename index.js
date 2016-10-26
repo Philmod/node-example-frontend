@@ -39,7 +39,7 @@ app.get('/slow', function(req, res) {
  */
 if (process.env.NODE_ENV !== 'test') {
   app.listen(3001, function() {
-    console.log('listening on *:3001');
+    console.log('http server listening on *:3001, running on node %s', process.version);
   });
 }
 
