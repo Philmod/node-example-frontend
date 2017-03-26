@@ -13,7 +13,6 @@ steps:
   - '-c'
   - |
     gcloud components install kubectl
-    kubectl config view
     gsutil cp gs://container-kubernetes-key/kubeconfig .
     export KUBECONFIG=kubeconfig
     kubectl set image deployment/frontend frontend=gcr.io/$PROJECT_ID/frontend:$REVISION_ID
