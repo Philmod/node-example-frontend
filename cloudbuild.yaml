@@ -13,5 +13,6 @@ steps:
   - '-c'
   - |
     gcloud components install kubectl
+    gcloud container clusters get-credentials node-example-cluster
     kubectl get pods
     kubectl set image deployment/frontend frontend=gcr.io/$PROJECT_ID/frontend:$REVISION_ID
