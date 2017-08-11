@@ -1,8 +1,8 @@
 steps:
-- name: 'busybox'
+- name: 'ubuntu'
   args: ['pwd']
-- name: 'busybox'
-  args: ['ls *']
+- name: 'ubuntu'
+  args: ['ls', '*']
 - name: 'gcr.io/cloud-builders/npm'
   args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
